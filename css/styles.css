@@ -5,7 +5,7 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-.topo {
+.top {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -23,12 +23,12 @@ body {
 
 }
 
-.topo img {
+.top img {
     height: 53px;
     width: 75px;
 }
 
-.topo ion-icon {
+.top ion-icon {
     font-size: 42px;
 }
 
@@ -62,10 +62,48 @@ body {
     font-weight: 400;
 }
 
-.bottom input:focus {}
 
 .bottom ::placeholder {
     font-style: italic;
     font-size: 18px;
     font-weight: 400;
+}
+
+.message-field {
+    margin: 90px 0 90px 0;
+}
+
+.user-message {
+    display: flex;
+    align-items: center;
+
+    width: 100vw;
+    min-height: 40px;
+    border-radius: 2px;
+    margin: 4px 0 4px 0;
+    background-color: #FFFFFF;
+    font-size: 14px;
+    flex-wrap: wrap;
+}
+
+.status {
+    background-color: #DCDCDC;
+}
+
+.private_message {
+    background-color: #FFDEDE;
+}
+
+.time {
+    font-size: 14px;
+    margin: 0 4px 0 8px;
+    font-weight: 400;
+    color: #AAAAAA;
+}
+
+.bold {
+
+    font-size: 14px;
+    margin: 0 4px 0 4px;
+    font-weight: 700;
 }
