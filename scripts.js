@@ -1,36 +1,5 @@
 let messages;
 
-
-
-const msg1 = {
-    from: "João",
-    to: "Todos",
-    text: "entra na sala...",
-    type: "status",
-    time: "08:01:17"
-};
-
-const msg2 = {
-    from: "João",
-    to: "Todos",
-    text: "Bom dia",
-    type: "message",
-    time: "08:02:50"
-};
-
-/* function colocarmsg() {
-    let field = document.querySelector('.message-field');
-    field.innerHTML = ` <div class="user-message ${msg2.type}">
-    <span class="time">(${msg2.time})</span>
-    <span class="bold">${msg2.from}</span>
-       para 
-    <span class="bold">${msg2.to}: </span>
-    ${msg2.text} </div>`
-
-}
-
-colocarmsg() */
-
 let meunome = {
     name: "Fiorinha"
 }
@@ -41,11 +10,8 @@ function login() {
     promise.then(stayOnline)
 }
 
-
-
-
 function stayOnline() {
-    setInterval(login, 5000)
+    setTimeout(login, 4000)
 }
 
 searchMessage()
@@ -61,7 +27,6 @@ function saveMessages(answer) {
     }
 
     messages = answer.data;
-    console.log(messages)
     renderMessages()
 
 }
@@ -79,4 +44,6 @@ function renderMessages() {
         <span class="bold">${messages[i].to}:</span>
         ${messages[i].text} </div>`
     }
+
+    setTimeout(searchMessage, 3000)
 }
