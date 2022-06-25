@@ -8,16 +8,6 @@ let meunome = {
 }
 
 
-/* getName()
-function getName() {
-    username = document.querySelector('.name').value;
-    meunome = {
-        name: username,
-    }
-    login();
-}
- */
-
 function login() {
     username = document.querySelector('.name').value;
     meunome = {
