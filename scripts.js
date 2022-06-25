@@ -101,7 +101,7 @@ function renderMessages() {
 }
 
 function sendMessage() {
-
+    setTimeout(clean, 1000)
     text = document.querySelector('.sendmsg').value;
     let msg = {
         from: meunome.name,
@@ -112,6 +112,11 @@ function sendMessage() {
     const promese = axios.post('https://mock-api.driven.com.br/api/v6/uol/messages', msg);
     promese.then(saveMessages());
     promese.catch(reset);
+
+}
+
+function clean() {
+    document.querySelector('.sendmsg').value = "";
 }
 
 function reset() {
