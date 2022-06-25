@@ -24,7 +24,7 @@ function error() {
 }
 
 function hideLogin() {
-    document.querySelector('.login').classList.add('hidden');
+    document.querySelector('.login').classList.toggle('hidden');
 }
 
 
@@ -111,10 +111,9 @@ function sendMessage() {
     }
     const promese = axios.post('https://mock-api.driven.com.br/api/v6/uol/messages', msg);
     promese.then(saveMessages());
-    promese.catch(getName);
-
-    promese.catch(getName);
-
+    promese.catch(reset);
 }
 
-
+function reset() {
+    window.location.reload()
+}
