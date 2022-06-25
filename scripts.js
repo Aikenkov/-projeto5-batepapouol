@@ -8,21 +8,35 @@ let meunome = {
 }
 
 
-getName()
+/* getName()
 function getName() {
-    username = prompt('Digite seu nome:');
+    username = document.querySelector('.name').value;
     meunome = {
         name: username,
     }
     login();
 }
-
+ */
 
 function login() {
+    username = document.querySelector('.name').value;
+    meunome = {
+        name: username,
+    }
     const promise = axios.post('https://mock-api.driven.com.br/api/v6/uol/participants', meunome)
     promise.then(stayOnline);
-    promise.catch(getName);
+    promise.then(hideLogin);
+    promise.catch(error);
 }
+
+function error() {
+    alert('escolha outro nome')
+}
+
+function hideLogin() {
+    document.querySelector('.login').classList.add('hidden');
+}
+
 
 function onlineStatus() {
     const promise = axios.post('https://mock-api.driven.com.br/api/v6/uol/status', meunome)
