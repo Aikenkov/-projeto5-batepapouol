@@ -1,5 +1,4 @@
 let field = document.querySelector('.message-field');
-field.innerHTML = "";
 
 let messages;
 
@@ -15,10 +14,11 @@ function login() {
 }
 
 function stayOnline() {
-    setTimeout(login, 4000)
+    setTimeout(login, 2000);
 }
 
-searchMessage()
+searchMessage();
+
 
 function searchMessage() {
     const promise = axios.get('https://mock-api.driven.com.br/api/v6/uol/messages')
@@ -26,20 +26,21 @@ function searchMessage() {
 }
 
 function saveMessages(answer) {
-    if (answer.status === 200) {
-        console.log("Deuuu boooom");
-    }
+    /*    if (answer.status === 200) {
+           console.log("Deuuu boooom");
+       } */
     messages = answer.data;
     renderMessages()
 
 }
 
 function renderMessages() {
+    field.innerHTML = "";
 
     for (let i = 0; i < messages.length; i++) {
 
 
-        if (messages[i].type === 'private_message' && to === meunome.name) {
+        if (messages[i].type === 'private_message' && messages[i].to === meunome.name) {
 
             field.innerHTML += ` 
         <div class="user-message ${messages[i].type}">
@@ -63,7 +64,6 @@ function renderMessages() {
         }
 
 
-
         if (messages[i].type === 'status') {
 
             field.innerHTML += ` 
@@ -74,8 +74,25 @@ function renderMessages() {
         ${messages[i].text} </div>`
         }
     }
+    setTimeout(searchMessage, 3000)
+    const lestMessage = field.lastChild;
+    lestMessage.scrollIntoView();
+
 
 }
 
-setTimeout(searchMessage, 3000)
+function sendMessage() {
+    let text = document.querySelector('.sendmsg').value;
+    let msg = {
+        from: meunome.name,
+        to: "Todos",
+        text: text,
+        type: "message",
+    }
+    const promese = axios.post('https://mock-api.driven.com.br/api/v6/uol/messages', msg);
+    promese.then(saveMessages());
+
+
+}
+
 
