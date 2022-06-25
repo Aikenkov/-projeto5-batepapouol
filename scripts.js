@@ -1,20 +1,36 @@
 let field = document.querySelector('.message-field');
 
 let messages;
-
+let text;
+let username;
 let meunome = {
-    name: "Fiorinha"
+    name: username,
 }
 
 
-login()
+getName()
+function getName() {
+    username = prompt('Digite seu nome:');
+    meunome = {
+        name: username,
+    }
+    login();
+}
+
+
 function login() {
     const promise = axios.post('https://mock-api.driven.com.br/api/v6/uol/participants', meunome)
-    promise.then(stayOnline)
+    promise.then(stayOnline);
+    promise.catch(getName);
 }
 
+function onlineStatus() {
+    const promise = axios.post('https://mock-api.driven.com.br/api/v6/uol/status', meunome)
+}
+
+
 function stayOnline() {
-    setTimeout(login, 2000);
+    setInterval(onlineStatus, 4000);
 }
 
 searchMessage();
@@ -30,8 +46,7 @@ function saveMessages(answer) {
            console.log("Deuuu boooom");
        } */
     messages = answer.data;
-    renderMessages()
-
+    renderMessages();
 }
 
 function renderMessages() {
@@ -82,7 +97,8 @@ function renderMessages() {
 }
 
 function sendMessage() {
-    let text = document.querySelector('.sendmsg').value;
+
+    text = document.querySelector('.sendmsg').value;
     let msg = {
         from: meunome.name,
         to: "Todos",
@@ -91,7 +107,9 @@ function sendMessage() {
     }
     const promese = axios.post('https://mock-api.driven.com.br/api/v6/uol/messages', msg);
     promese.then(saveMessages());
+    promese.catch(getName);
 
+    promese.catch(getName);
 
 }
 

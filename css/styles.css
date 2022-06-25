@@ -54,7 +54,11 @@ body {
     font-size: 30px;
 }
 
-.bottom input {
+.bottom ion-icon:hover {
+    cursor: pointer;
+}
+
+.sendmsg {
     border: none;
     height: 30px;
     width: 250px;
@@ -62,6 +66,9 @@ body {
     font-weight: 400;
 }
 
+.sendmsg:focus {
+    outline: none;
+}
 
 .bottom ::placeholder {
     font-style: italic;
@@ -76,14 +83,16 @@ body {
 .user-message {
     display: flex;
     align-items: center;
-
-    width: 100vw;
+    padding-left: 8px;
+    max-width: 100vw;
     min-height: 40px;
     border-radius: 2px;
     margin: 4px 0 4px 0;
     background-color: #FFFFFF;
     font-size: 14px;
+    word-wrap: break-word;
     flex-wrap: wrap;
+
 }
 
 .status {
@@ -96,7 +105,7 @@ body {
 
 .time {
     font-size: 14px;
-    margin: 0 4px 0 8px;
+    margin-right: 4px;
     font-weight: 400;
     color: #AAAAAA;
 }
