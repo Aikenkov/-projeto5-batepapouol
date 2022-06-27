@@ -78,6 +78,7 @@ body {
 
 .message-field {
     margin: 90px 0 90px 0;
+    width: 100vw;
 }
 
 .user-message {
@@ -90,8 +91,10 @@ body {
     margin: 4px 0 4px 0;
     background-color: #FFFFFF;
     font-size: 14px;
-    word-wrap: break-word;
     flex-wrap: wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    overflow-x: scroll;
 
 }
 
@@ -123,8 +126,8 @@ body {
     justify-content: centr;
     align-items: center;
     background-color: #FFFFFF;
-    height: 100%;
-    width: 100%;
+    height: 1000px;
+    width: 100vw;
     position: fixed;
     top: 0;
     left: 0;
