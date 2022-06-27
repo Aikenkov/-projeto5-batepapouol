@@ -77,7 +77,7 @@ function renderMessages() {
         <div class="user-message ${messages[i].type}">
         <span class="time">(${messages[i].time})</span>
         <span class="bold">${messages[i].from}</span>
-        para 
+        <span>para </span>
         <span class="bold">${messages[i].to}:</span>
         ${messages[i].text} </div>`
         }
